@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div{
+    text-align: center;
+}
+
+h1{
+    font-size: 60px;
+    animation: p_anim infinite 10s;
+    margin: auto;
+}
+
+@keyframes p_anim {
+    0%{color: white;}
+    20%{color: magenta;}
+    40%{color: orange;}
+    50%{transform: scale(1.1,1.1);}
+    60%{color: lime;}
+    80%{color: rgb(77, 77, 255);}
+    100%{color: white;}
+}
