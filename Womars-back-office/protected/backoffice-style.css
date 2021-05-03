@@ -1,0 +1,215 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #0A0623;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* STYLE - BARRE DE NAVIGATION */
+
+.Navbar{
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 8vh;
+    font-size: 20px;
+    border-bottom: solid #0A0623 1px;
+}
+
+.Navbar-section{
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    line-height: 8vh;
+    vertical-align: top;
+    text-align: right;
+}
+
+.Navbar-section:first-child{
+    text-align: left;
+    line-height: calc(8vh + 17px);
+}
+
+.Navbar-logo{
+    height: 34px;
+    width: auto;
+    margin: 0 50px;
+}
+
+.Navbar-lien{
+    text-decoration: none;
+    color: #0A0623;
+    margin: 0 30px;
+    transition: .25s;
+}
+
+.Navbar-lien:hover{
+    color: #F37C26;
+    transform: scale(1.1,1.1);
+}
+
+.Navbar-lien:last-child{
+    margin-right: 100px;
+}
+
+/* STYLE - MENU */
+
+.Menu-div{
+    position: fixed;
+    background-color: #0A0623;
+    width: 20%;
+    min-width: 180px;
+    height: 66vh;
+    bottom: 0;
+    overflow: auto;
+}
+
+.Menu-button{
+    height: 60px;
+    width: 100%;
+    border: 0;
+    font-size: 20px;
+    background-color: #0A0623;
+    color: white;
+    transition: 0.25s;
+    cursor: pointer;
+    border-bottom: solid white 1px;
+}
+
+.Menu-button:first-child{
+    border-bottom: solid white 1px;
+}
+
+.Menu-button-selected{
+    background-color: white;
+    color: #0A0623;
+}
+
+.Menu-button:hover{
+    background-color: #F37C26;
+    color: white;
+}
+
+/* STYLE - PAGE */
+
+.Page-div-title{
+    padding-top: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0A0623;
+    height: 26vh;
+    width: 100%;
+    font-size: 44px;
+}
+
+.Page-view{
+    float: right;
+    width: 80%;
+    max-width: calc(100% - 180px);
+    height: 1000px;
+    background-color: white;
+    color: #0A0623;
+    text-align: center;
+    font-size: 34px;
+}
+
+.Page-view-title{
+    margin-top: 50px;
+}
+
+/* STYLE - PAGE TOOLS */
+
+.Page-tools{
+    width: 100%;
+    height: 100px;
+}
+
+.Page-tools-section{
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    vertical-align: top;
+    line-height: 100px;
+    text-align: right;
+}
+
+.Page-tools-researchbar{
+    width: 300px;
+    height: 30px;
+    border: 0;
+    padding: 0 5px;
+    vertical-align: middle;
+    border: solid #0A0623 1px;
+}
+
+.Page-tools-researchbutton{
+    width: 150px;
+    height: 32px;
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 50px;
+    background-color: #F37C26;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.Page-tools-createcontent{
+    width: 200px;
+    height: 36px;
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 80px;
+    background-color: #F37C26;
+    border: 0;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.Page-tools-createcontent:hover, .Page-tools-researchbutton:hover{
+    transform: scale(1.08,1.08);
+}
+
+/* STYLE - TABLE */
+
+.Page-allcontenttable{
+    width: 88%;
+    margin: auto;
+    margin-top: 50px;
+    height: 100px;
+    background-color: #0A0623;
+    font-size: 18px;
+}
+
+.Table-head{
+    background-color: #0A0623;
+    color:white;
+}
+
+tr{
+    height: 50px;
+}
+
+.Table-id{width: 12%;}
+.Table-title{width: 22%;}
+.Table-author{width: 22%;}
+.Table-date{width: 22%;}
+.Table-edit{width: 22%;}
+
+.Table-cell{
+    background-color: white;
+    font-size: 16px;
+}
+
+.Table-cell-edit{
+    background-color: #F37C26;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
