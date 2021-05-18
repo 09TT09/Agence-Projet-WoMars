@@ -1,4 +1,11 @@
-AuthName "Ceci est du contenu securise"
+AuthName "Protected area"
 AuthType Basic
 AuthUserFile "C:\wamp64\www\Womars-back-office\protected\.htpasswd"
 Require valid-user
+
+#   RewriteEngine On
+#   RewriteBase "/Womars-back-office/protected/elements/pages/"
+#   RewriteRule "^index.php$" "backoffice.php" [L,R]
+
+RewriteEngine On
+RewriteRule "^index.php$" "http://localhost/Womars-back-office/protected/elements/pages/back-office.php"
