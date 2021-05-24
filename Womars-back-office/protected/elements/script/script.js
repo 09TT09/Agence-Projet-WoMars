@@ -1,3 +1,5 @@
+// MAIN SCRIPT
+
 let menuButtonsArray = ['Statistics', 'Articles', 'Pages', 'Media', 'Comments'];
 let page;
 
@@ -56,3 +58,21 @@ function SwitchContent(){
 window.onscroll = function (event) {
   document.getElementById('menuDiv').style.height = `calc(66vh + ${parseInt(window.scrollY)}px)`;
 };
+
+// MEDIA SCRIPT
+
+function editImage(imageId){
+  const idSplit = imageId.id.split("-");
+
+  let xhttp = new XMLHttpRequest();
+  xhttp.open('POST', 'post-id-image.php', true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.onreadystatechange = function() {
+    if(xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById('getXHR').innerHTML = xhttp.responseText;
+      document.getElementById('paramsImage').style.display = 'flex';
+    }
+  }
+
+  xhttp.send(`id=${idSplit[1]}`);
+}

@@ -46,7 +46,7 @@
         $sql->bindParam(':size', $_FILES["fileToUpload"]["size"]);
         $sql->bindParam(':type', $_FILES["fileToUpload"]["type"]);
         $sql->execute();
-        //header("location:../pages/back-office.php?page=Media");
+        header("location:../pages/back-office.php?page=Media");
         echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
       } else {
         echo "Sorry, there was an error uploading your file.";

@@ -11,6 +11,7 @@
     </head>
 
     <body>
+        <?php include("../sections/section-parameters.php"); ?>
         <?php include("../sections/section-navbar.php"); ?>
         <div class="Page-view">
             <p class="Page-view-title" id="pageTitle">Statistics</p>
