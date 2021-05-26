@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#fullscreen {
+  height: 100vh;
+}
+
+#fullscreen section {
+  height: 100vh;
+}
+
+#fullscreen section h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 100vh;
+
+  text-transform: uppercase;
+}
+
+#fullscreen section:nth-child(1) {
+  background: red;
+}
+#fullscreen section:nth-child(2) {
+  background: blue;
+}
+#fullscreen section:nth-child(3) {
+  background: green;
+}
+#fullscreen section:nth-child(4) {
+  background: yellow;
+}
+#fullscreen section:nth-child(5) {
+  background: grey;
+}
