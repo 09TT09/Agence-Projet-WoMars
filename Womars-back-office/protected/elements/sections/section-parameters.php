@@ -1,7 +1,7 @@
 <div class="parameters-galerieFlexbox" id="paramsImage">
     <div class="parameters-divParams">
-    <button class="parameters-exit" id="exit">X</button>
-    <span id="getXHR"></span>
+    <button class="parameters-exit" id="exit">X</button><!--
+    --><span id="getXHR"></span>
     </div>
 </div>
 
@@ -25,7 +25,7 @@ document.getElementById('exit').addEventListener('click', event => {
 }
 
 .parameters-divParams{
-    width: 70%;
+    width: 80%;
     height: 90vh;
     background-color: white;
     color: black;
@@ -68,6 +68,7 @@ document.getElementById('exit').addEventListener('click', event => {
     background-color: #d4d4d4;
     vertical-align: top;
     text-align: center;
+    overflow: auto;
 }
 
 .parameters-actions{
@@ -94,8 +95,40 @@ document.getElementById('exit').addEventListener('click', event => {
     transition: .25s;
 }
 
+.parameters-button-update{
+    width: 150px;
+    height: 35px;
+    font-size: 16px;
+    background-color: #5e4cff;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+    margin-left: 10px;
+}
+
+.parameters-button-update:hover{
+    background-color: #493bc5;
+}
+
 .parameters-button-delete:hover{
     background-color: #ae0021;
+}
+
+.media-inputtext{
+    width: 85%;
+    padding: 7px;
+}
+
+.media-inputtextarea{
+    width: 85%;
+    height: 300px;
+    padding: 7px;
+}
+
+.media-label{
+    text-align: left;
 }
 
 </style>

@@ -1,11 +1,11 @@
-<form action="../traitement/insert/fileTransfert.php" method="post" enctype="multipart/form-data">
+<form action="../traitement/insert/imageTransfertPartners.php" method="post" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Image" name="submit">
 </form>
 
 <?php
-    if(isset($_GET['errorMedia'])){
-        $error = $_GET['errorMedia'];
+    if(isset($_GET['errorPartners'])){
+        $error = $_GET['errorPartners'];
         $errorText;
         if ($error === 'error1'){$errorText = 'No file chosen';}
         if ($error === 'error2'){$errorText = "An error occured when uploading your file.";}
@@ -17,26 +17,26 @@
     }
 ?>
 
-<?php if (isset($_GET['errorMedia'])): ?>
+<?php if (isset($_GET['errorPartners'])): ?>
     <div class="divErrorCases">
         <p>Error : <?php echo htmlspecialchars($errorText, ENT_QUOTES, 'UTF-8') ?></P>
     </div>
 <?php endif ?>
 
-<div class="media-galerie" id="galerie">
+<div class="partners-galerie" id="galerie">
     <?php
-        $req = $db->query('SELECT * FROM images ORDER BY id DESC'); 
-        $allimages = $req->fetchAll();
-        foreach ($allimages as $image):
+        $req = $db->query('SELECT * FROM partners ORDER BY id DESC'); 
+        $allpartners = $req->fetchAll();
+        foreach ($allpartners as $partner):
     ?>
 
-        <div class="media-containerImage" onclick="editImage(this)" id="containerImage-<?php echo htmlspecialchars($image['id'], ENT_QUOTES, 'UTF-8') ?>">
-            <?php if (file_exists('../media/'.$image['name']) === false): ?>
+        <div class="partners-containerImage" onclick="editImage(this)" id="containerImage-<?php echo htmlspecialchars($partner['id'], ENT_QUOTES, 'UTF-8') ?>">
+            <?php if (file_exists('../media/partners/'.$partner['name']) === false): ?>
                 <div class="error">
-                    <p>This image was not found in the "media" folder.<br><br> Please, delete the path with the image parameters window</p>
+                    <p>This image was not found in the "partners" folder.<br><br> Please, delete the path with the image parameters window</p>
                 </div>
             <?php else: ?>
-                <img class="media-Image" src="../media/<?php echo htmlspecialchars($image['name'], ENT_QUOTES, 'UTF-8') ?>"  alt="<?php echo htmlspecialchars($image['alt'], ENT_QUOTES, 'UTF-8') ?>" id="image-<?php echo htmlspecialchars($image['id'], ENT_QUOTES, 'UTF-8') ?>"/>
+                <img class="partners-Image" src="../media/partners/<?php echo htmlspecialchars($partner['name'], ENT_QUOTES, 'UTF-8') ?>" alt="<?php echo htmlspecialchars($partner['alt'], ENT_QUOTES, 'UTF-8') ?>" id="image-<?php echo htmlspecialchars($partner['id'], ENT_QUOTES, 'UTF-8') ?>"/>
             <?php endif; ?>
         </div>
 
@@ -45,7 +45,7 @@
 
 <style>
 
-.media-galerie{
+.partners-galerie{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +53,7 @@
     margin-top: 100px;
 }
 
-.media-containerImage{
+.partners-containerImage{
     width: 180px;
     height: 180px;
     border: solid black 1px;
@@ -61,7 +61,7 @@
     background-color: #d4d4d4;
 }
 
-.media-Image{
+.partners-Image{
     height: 100%;
     width: 100%;
     object-fit: contain;

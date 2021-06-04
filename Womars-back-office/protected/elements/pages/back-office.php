@@ -25,7 +25,7 @@
         ?>
 
         <script>
-        let redirectPage = '<?php echo $getPage; ?>';
+        let redirectPage = '<?php echo htmlspecialchars($getPage, ENT_QUOTES, 'UTF-8') ?>';
 
         function ChangePageContent(){
             document.getElementById('modulableContent').innerHTML = '';
@@ -43,7 +43,13 @@
                 });
             }
             else if (page === 'Media'){
-                document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/media.php";?>`;
+                document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/media.php"?>`;
+            }
+            else if (page === 'Crew'){
+                document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/crew.php";?>`;
+            }
+            else if (page === 'Partners'){
+                document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/partners.php";?>`;
             }
         }
         </script>

@@ -1,6 +1,6 @@
 // MAIN SCRIPT
 
-let menuButtonsArray = ['Statistics', 'Articles', 'Pages', 'Media', 'Comments'];
+let menuButtonsArray = ['Statistics', 'Articles', 'Pages', 'Media', 'Comments', 'Crew', 'Partners'];
 let page;
 
 if (redirectPage === 'vide'){ page = 'Statistics'; }
@@ -49,30 +49,64 @@ function SwitchContent(){
       document.getElementsByClassName('Menu-button')[4].querySelector('svg').classList.add('color-orange');
       page = 'Comments';
       break;
+    case 'Crew':
+      document.getElementsByClassName('Menu-button')[5].classList.add('Menu-button-selected');
+      document.getElementsByClassName('Menu-button')[5].querySelector('svg').classList.add('color-orange');
+      page = 'Crew';
+      break;
+    case 'Partners':
+      document.getElementsByClassName('Menu-button')[6].classList.add('Menu-button-selected');
+      document.getElementsByClassName('Menu-button')[6].querySelector('svg').classList.add('color-orange');
+      page = 'Partners';
+      break;
     default:
-      console.log(`Menu color error`);
+      console.log('Menu color error');
   }
   ChangePageContent();
 }
 
 window.onscroll = function (event) {
-  document.getElementById('menuDiv').style.height = `calc(66vh + ${parseInt(window.scrollY)}px)`;
+  document.getElementById('menuDiv').style.height = 'calc(66vh + '+parseInt(window.scrollY)+'px)';
 };
 
-// MEDIA SCRIPT
+// MEDIA, CREW AND PARTNERS SCRIPT
 
 function editImage(imageId){
-  const idSplit = imageId.id.split("-");
+  const getPageName = document.getElementById('pageTitle').innerHTML.toLowerCase();
+  const idSplit = imageId.id.split('-');
 
   let xhttp = new XMLHttpRequest();
-  xhttp.open('POST', 'post-id-image.php', true);
+  xhttp.open('POST', 'xhr/post-id-'+getPageName+'.php', true);
   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   xhttp.onreadystatechange = function() {
     if(xhttp.readyState == 4 && xhttp.status == 200) {
       document.getElementById('getXHR').innerHTML = xhttp.responseText;
       document.getElementById('paramsImage').style.display = 'flex';
+
+      document.getElementById('parameters-buttonform-page').addEventListener('click', event => {
+        document.getElementById('parameters-contentLeft').style.display = 'none';
+        document.getElementById('imagePageChange').style.display = 'none';
+        document.getElementById('imagePageChangeData').style.display = 'none';
+        document.getElementById('imagePageChangePerson').style.display = 'block';
+        document.getElementById('parameters-contentRight').classList.remove("parameters-contentRight");
+        document.getElementById('parameters-contentRight').classList.add("parameters-contentRight-page");
+        document.getElementById('parameters-buttonform-image').classList.remove("parameters-buttonform-onit");
+        document.getElementById('parameters-buttonform-page').classList.add("parameters-buttonform-onit");
+      });
+
+      document.getElementById('parameters-buttonform-image').addEventListener('click', event => {
+        document.getElementById('parameters-contentLeft').style.display = 'inline-flex';
+        document.getElementById('imagePageChange').style.display = 'initial';
+        document.getElementById('imagePageChangeData').style.display = 'initial';
+        document.getElementById('imagePageChangePerson').style.display = 'none';
+        document.getElementById('parameters-contentRight').classList.remove("parameters-contentRight-page");
+        document.getElementById('parameters-contentRight').classList.add("parameters-contentRight");
+        document.getElementById('parameters-buttonform-image').classList.add("parameters-buttonform-onit");
+        document.getElementById('parameters-buttonform-page').classList.remove("parameters-buttonform-onit");
+      });
+
     }
   }
 
-  xhttp.send(`id=${idSplit[1]}`);
+  xhttp.send('id='+idSplit[1]);
 }

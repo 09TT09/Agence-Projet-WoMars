@@ -136,9 +136,11 @@ button{
 .menu-images-pages{fill:white}
 .menu-images-media{fill:white}
 .menu-images-comments{fill:white}
+.menu-images-crew{fill:white}
+.menu-images-partners{fill:white; stroke:#0A0623;}
 
-.Menu-button:hover .menu-images{fill:#0A0623;}
-.color-orange{fill:orange;}
+.Menu-button:hover .menu-images{fill:#0A0623; stroke: orange;}
+.color-orange{fill:orange;stroke:white;}
 
 
 
@@ -341,6 +343,8 @@ tr{
     max-height: 400px;
     border: 0;
     border-radius: 10px;
+    background-color: #FFFFFF;
+    color: black;
 }
 
 .article-input{
