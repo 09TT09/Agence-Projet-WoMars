@@ -44,12 +44,15 @@
             }
             else if (page === 'Media'){
                 document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/media.php"?>`;
+                tailleImages();
             }
             else if (page === 'Crew'){
                 document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/crew.php";?>`;
+                tailleImages();
             }
             else if (page === 'Partners'){
                 document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/partners.php";?>`;
+                tailleImages();
             }
         }
         </script>

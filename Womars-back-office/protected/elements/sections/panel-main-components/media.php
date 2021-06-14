@@ -19,9 +19,15 @@
 
 <?php if (isset($_GET['errorMedia'])): ?>
     <div class="divErrorCases">
-        <p>Error : <?php echo htmlspecialchars($errorText, ENT_QUOTES, 'UTF-8') ?></P>
+        Error : <?php echo htmlspecialchars($errorText, ENT_QUOTES, 'UTF-8') ?>
     </div>
 <?php endif ?>
+
+<div class="taille-image-div">
+    <div class="taille-image-title">Image display size :</div>
+    <button id="tailleMoins">-</button>
+    <button id="taillePlus">+</button>
+</div>
 
 <div class="media-galerie" id="galerie">
     <?php
@@ -59,6 +65,7 @@
     border: solid black 1px;
     margin: 5px;
     background-color: #d4d4d4;
+    cursor: pointer;
 }
 
 .media-Image{
@@ -69,8 +76,8 @@
 }
 
 .allmedia-get-Image{
-    height: 100%;
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
 }
 
@@ -83,9 +90,27 @@
 }
 
 .divErrorCases{
+    margin-top: 20px;
     overflow: auto;
     color: crimson;
     font-size: 18px;
+}
+
+.taille-image-div{
+    margin-top: 30px;
+}
+
+.taille-image-title{
+    font-size: 18px;
+}
+
+@media screen and (max-width: 750px) {
+    .media-containerImage{
+        width: 130px;
+        height: 130px;
+        max-width: 300px;
+        min-width: 100px;
+    }
 }
 
 </style>
