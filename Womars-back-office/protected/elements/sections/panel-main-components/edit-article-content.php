@@ -22,7 +22,7 @@
         <p class="article-title">Description</p>
         <p><textarea name="description" class="article-textarea"><?php echo htmlspecialchars($article->description, ENT_QUOTES, 'UTF-8') ?></textarea></p>
         <p class="article-title">Text</p>
-        <p><div contentEditable="true" name="text" class="article-textarea"><?php echo htmlspecialchars($article->text, ENT_QUOTES, 'UTF-8') ?></div></p>
+        <p><div contentEditable="true" name="text" class="article-textarea"><?php echo htmlspecialchars($article->description, ENT_QUOTES, 'UTF-8') ?></div></p>
 
         <input type="submit" value="Update" name="update" class="article-button article-button-params">  
     </form>

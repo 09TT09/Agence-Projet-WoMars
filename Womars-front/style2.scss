@@ -1,0 +1,249 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+#page 
+{
+	min-height:100vh;
+	display:flex; 
+	flex-direction:column;
+}
+
+#header
+{
+    nav
+    {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        border-bottom: solid #0A0623 2px;
+        background-color: #FFFFFF;
+        z-index: 5;
+
+        div
+        {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            img
+            {
+                width: auto;
+                height: 0%;
+                margin-left: 30px;
+            }
+            ul
+            {
+                li
+                {
+                    display: inline-block;
+                    text-decoration: none;
+                    padding: 0 10px;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .navleft{
+        width: 30%;
+    }
+
+    .navright{
+        justify-content: flex-end;
+        margin-right: 30px;
+        width: 70%;
+    }
+
+    .navmobile{
+        display: none;
+    }
+}
+
+#content
+{
+    background-color: gray;
+    flex-grow:1;
+}
+
+#pageHeader
+{
+    background-color: lightgray;
+    text-align: center;
+    
+    h2
+    {
+        padding: 20%;
+    }
+}
+
+#pageHistory
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 5%;
+
+    div:first-child
+    {
+        background-color: lightgray;
+    }
+    div
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h2
+        {
+            margin-bottom: 3%;
+        }
+        p
+        {
+            width: 40%;
+            margin: 2.5% 0;
+        }
+    }
+}
+
+#pageValue
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h2
+    {
+        margin-bottom: 3%;
+    }
+    span
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        height: 100%;
+
+        div
+        {
+            background-color: lightgray;
+            padding: 10% 0;
+            margin: 2% 0;
+
+            p
+            {
+                text-align: center;
+                // margin-right: 10%;
+            } 
+        }
+        
+        div:nth-child(1), div:nth-child(3)
+        {
+            clip-path: polygon(85% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+            margin-right: -5%;
+        }
+        div:nth-child(2), div:nth-child(4)
+        {
+            clip-path: polygon(100% 0, 100% 100%, 100% 100%, 15% 100%, 0 0);
+            margin-left: -5%;
+        }
+        
+    }
+}
+
+#pageCrew
+{
+    h2
+    {
+        text-align: center;
+        margin: 4% 0;
+    }
+    .container
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        gap: 50px 50px; 
+        margin-bottom: 10%;
+
+        div
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .crewPic
+            {
+                background-color: lightgray;
+                height: 150px;
+                width: 150px;
+                border-radius: 100%;
+                margin-bottom: 5%;
+            }
+            .crewName
+            {
+                margin-bottom: 5%;
+            }
+            .crewDesc
+            {
+                width: 50%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+#footer
+{
+    footer
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+        background-color: white;
+
+        div
+        {
+            width: 100%;
+        }
+    }
+
+    .footer-firstdiv
+    {
+        margin-left: 30px;
+    }
+
+    .footer-seconddiv
+    {
+        text-align: center;
+
+        img
+        {
+            width: 45%;
+            margin-bottom: 40px;
+            height: auto;
+        }
+    }
+
+    .footer-seconddiv-color
+    {
+        color: #d37029;
+    }
+
+    .footer-thirddiv
+    {
+        margin-right: 30px;
+        text-align: right;
+    }
+}

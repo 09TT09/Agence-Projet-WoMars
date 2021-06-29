@@ -6,20 +6,20 @@
             <rect x="110.8" y="113.2" width="78.4" height="155.2"/>
             <rect x="203.3" y="31.5" width="78.4" height="236.9"/>
         </svg>
-    <span>Statistics</span></button>
+    Statistics</button>
 
     <button class="Menu-button">
         <svg class="menu-images menu-images-articles" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
             <path d="M241.7,16H58.3c-3.7,0-6.7,3-6.7,6.7v254.6c0,3.7,3,6.7,6.7,6.7h183.5c3.7,0,6.7-3,6.7-6.7V22.7C248.4,19,245.4,16,241.7,16z M78.8,48.3h142.5v13H78.8V48.3z M72.2,108.9c0-2.7,2.2-5,5-5h44.6c2.7,0,5,2.2,5,5v44.6c0,2.7-2.2,5-5,5H77.1c-2.7,0-5-2.2-5-5V108.9z M227.8,233.8H72.2v-4.3h155.6V233.8z M227.8,208.7H72.2v-4.3h155.6V208.7z M227.8,183.6H72.2v-4.3h155.6V183.6zM227.8,158.5h-91v-4.3h91V158.5z M227.8,133.4h-91V129h91V133.4z M227.8,108.3h-91v-4.3h91V108.3z"/>
         </svg>
-    <span>Articles</span></button>
+    Articles</button>
 
     <button class="Menu-button">
         <svg class="menu-images menu-images-pages" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
             <path d="M66.4,272.8c-3.7,0-6.7-3-6.7-6.7V38.4h-8c-3.7,0-6.7,3-6.7,6.7v232.2c0,3.7,3,6.7,6.7,6.7h167c3.7,0,6.7-3,6.7-6.7v-4.5H66.4z"/>
             <path d="M247.2,261.6h-167c-3.7,0-6.7-3-6.7-6.7V22.7c0-3.7,3-6.7,6.7-6.7h167c3.7,0,6.7,3,6.7,6.7v232.2C253.9,258.6,250.9,261.6,247.2,261.6z"/>
         </svg>
-    <span>Pages</span></button>
+    Pages</button>
     
     <button class="Menu-button">
         <svg class="menu-images menu-images-media" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
@@ -30,7 +30,7 @@
                 <circle cx="176.2" cy="156.5" r="6.4"/>
             </g>
         </svg>
-    <span>Media</span></button>
+    Media</button>
 
     <button class="Menu-button">
         <svg class="menu-images menu-images-comments" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
@@ -38,7 +38,7 @@
             <path d="M214.5,189.6H22.2c-2.5,0-4.6,2.1-4.6,4.6v48.7c0,2.5,2.1,4.6,4.6,4.6h192.3c2.5,0,4.6-2.1,4.6-4.6v-48.7C219.1,191.6,217,189.6,214.5,189.6z M47,238.4c-11,0-19.9-8.9-19.9-19.9c0-11,8.9-19.9,19.9-19.9s19.9,8.9,19.9,19.9C66.9,229.5,58,238.4,47,238.4z M202.8,228.1H76.6V223h126.2V228.1z M202.8,214H76.6v-5.1h126.2V214z"/>
             <path d="M277.8,125.6H85.5c-2.5,0-4.6,2.1-4.6,4.6v48.7c0,2.5,2.1,4.6,4.6,4.6h192.3c2.5,0,4.6-2.1,4.6-4.6v-48.7C282.4,127.6,280.4,125.6,277.8,125.6z M223.4,164.1H97.2V159h126.2V164.1z M223.4,150H97.2v-5.1h126.2V150z M253,174.4c-11,0-19.9-8.9-19.9-19.9c0-11,8.9-19.9,19.9-19.9s19.9,8.9,19.9,19.9C272.9,165.5,264,174.4,253,174.4z"/>
         </svg>
-    <span>Comments</span></button>
+    Comments</button>
 
     <button class="Menu-button">
     <svg class="menu-images menu-images-crew" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
@@ -51,7 +51,7 @@
             <path d="M205.8,58.7c0-3.8-0.4-7.5-1.1-11.1c6.4-4.3,14.1-6.8,22.3-6.8c22.1,0,40,17.9,40,40s-17.9,40-40,40c-16.3,0-30.3-9.8-36.6-23.8C199.9,87.1,205.8,73.6,205.8,58.7z"/>
         </g>
     </svg>
-    <span>Crew</span></button>
+    Crew</button>
 
     <button class="Menu-button">
         <svg class="menu-images menu-images-partners" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
@@ -99,85 +99,5 @@
                 </g>
             </g>
         </svg>
-    <span>Partners</span></button>
+    Partners</button>
 </div>
-
-<style>
-
-/* STYLE - MENU */
-
-.Menu-div{
-    position: fixed;
-    background-color: #0A0623;
-    width: 16%;
-    min-width: 180px;
-    height: auto;
-    overflow: auto;
-    top: 260px;
-}
-
-.Menu-button{
-    height: 60px;
-    width: 100%;
-    border: 0;
-    font-size: 18px;
-    background-color: #0A0623;
-    color: white;
-    cursor: pointer;
-    border-bottom: solid white 1px;
-    text-align: left;
-    padding-left: 10px;
-    transition: 0.25s;
-}
-
-.Menu-button:first-child{
-    border-bottom: solid white 1px;
-}
-
-.Menu-button-selected{
-    background-color: white;
-    color: #0A0623;
-}
-
-.Menu-button:hover{
-    background-color: #F37C26;
-    color: white;
-}
-
-.menu-images{
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    background-repeat: no-repeat;
-    vertical-align: sub;
-    padding-right: 10px;
-    transition: 0.25s;
-}
-
-.menu-images-statistics{fill:white}
-.menu-images-articles{fill:white}
-.menu-images-pages{fill:white}
-.menu-images-media{fill:white}
-.menu-images-comments{fill:white}
-.menu-images-crew{fill:white}
-.menu-images-partners{fill:white; stroke:#0A0623;}
-
-.Menu-button:hover .menu-images{fill:#0A0623; stroke: orange;}
-.color-orange{fill:orange;stroke:white;}
-
-@media screen and (max-width: 750px) {
-    .Menu-div{
-        width: 60px;
-        min-width: 60px;
-    }
-    .Menu-div span{
-        display: none;
-    }
-    .Menu-button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-</style>

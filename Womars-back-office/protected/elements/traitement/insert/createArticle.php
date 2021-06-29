@@ -3,13 +3,12 @@
 
     $textAreas = array($_POST['title'], $_POST['author'], $_POST['description'], $_POST['text']);
 
-    /*
     foreach($textAreas as $textArea) {
         if(preg_match('/(<?|<script>|<html>)/',$textArea)){
             header("location:../../pages/back-office.php?page=Articles&error=code");
             exit();
         }
-    }*/
+    }
 
     if(isset($_POST['send'])){
         $sql = $db->prepare("INSERT INTO articles (title, author, description, text) VALUES (:title, :author, :description, :text)");

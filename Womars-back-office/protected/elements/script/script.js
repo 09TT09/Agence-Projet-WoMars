@@ -65,37 +65,8 @@ function SwitchContent(){
   ChangePageContent();
 }
 
-window.onload = function (event) {
-  if (window.innerWidth >= 750){
-    if (window.scrollY < 200){document.getElementById('menuDiv').style.top = 'calc(260px - '+parseInt(window.scrollY)+'px)';}
-    if (window.scrollY >= 200){document.getElementById('menuDiv').style.top = '61px';}
-  }
-  else if (window.innerWidth < 750){
-    if (window.scrollY < 100){document.getElementById('menuDiv').style.top = 'calc(160px - '+parseInt(window.scrollY)+'px)';}
-    if (window.scrollY >= 100){document.getElementById('menuDiv').style.top = '61px';}
-  }
-};
-
 window.onscroll = function (event) {
-  if (window.innerWidth >= 750){
-    if (window.scrollY < 200){document.getElementById('menuDiv').style.top = 'calc(260px - '+parseInt(window.scrollY)+'px)';}
-    if (window.scrollY >= 200){document.getElementById('menuDiv').style.top = '61px';}
-  }
-  else if (window.innerWidth < 750){
-    if (window.scrollY < 100){document.getElementById('menuDiv').style.top = 'calc(160px - '+parseInt(window.scrollY)+'px)';}
-    if (window.scrollY >= 100){document.getElementById('menuDiv').style.top = '61px';}
-  }
-};
-
-window.onresize = function (event) {
-  if (window.innerWidth >= 750){
-    if (window.scrollY < 200){document.getElementById('menuDiv').style.top = 'calc(260px - '+parseInt(window.scrollY)+'px)';}
-    if (window.scrollY >= 200){document.getElementById('menuDiv').style.top = '61px';}
-  }
-  else if (window.innerWidth < 750){
-    if (window.scrollY < 100){document.getElementById('menuDiv').style.top = 'calc(160px - '+parseInt(window.scrollY)+'px)';}
-    if (window.scrollY >= 100){document.getElementById('menuDiv').style.top = '61px';}
-  }
+  document.getElementById('menuDiv').style.height = 'calc(66vh + '+parseInt(window.scrollY)+'px)';
 };
 
 // MEDIA, CREW AND PARTNERS SCRIPT
@@ -138,38 +109,4 @@ function editImage(imageId){
   }
 
   xhttp.send('id='+idSplit[1]);
-}
-
-function tailleImages(){
-  if (document.getElementById('taillePlus')){
-    let pageTitle = document.getElementById('pageTitle').innerHTML.toLowerCase();
-    document.getElementById('taillePlus').addEventListener('click', event => {
-      let imageWidthAndHeight;
-      if (document.getElementsByClassName(pageTitle + '-containerImage')[0]){
-        imageWidthAndHeight = document.getElementsByClassName(pageTitle + '-containerImage')[0].offsetWidth + 20;
-      }
-      if (imageWidthAndHeight < 300){
-        for (var nbImages = 0; nbImages < document.getElementsByClassName(pageTitle + '-containerImage').length; nbImages++) {
-          document.getElementsByClassName(pageTitle + '-containerImage')[nbImages].style.width = imageWidthAndHeight + 'px';
-          document.getElementsByClassName(pageTitle + '-containerImage')[nbImages].style.height = imageWidthAndHeight + 'px';
-        }
-      }
-    });
-  }
-
-  if (document.getElementById('tailleMoins')){
-    let pageTitle = document.getElementById('pageTitle').innerHTML.toLowerCase();
-    document.getElementById('tailleMoins').addEventListener('click', event => {
-      let imageWidthAndHeight;
-      if (document.getElementsByClassName(pageTitle + '-containerImage')[0]){
-        imageWidthAndHeight = document.getElementsByClassName(pageTitle + '-containerImage')[0].offsetWidth - 20;
-      }
-      if (imageWidthAndHeight > 100){
-        for (var nbImages = 0; nbImages < document.getElementsByClassName(pageTitle + '-containerImage').length; nbImages++) {
-          document.getElementsByClassName(pageTitle + '-containerImage')[nbImages].style.width = imageWidthAndHeight + 'px';
-          document.getElementsByClassName(pageTitle + '-containerImage')[nbImages].style.height = imageWidthAndHeight + 'px';
-        }
-      }
-    });
-  }
 }

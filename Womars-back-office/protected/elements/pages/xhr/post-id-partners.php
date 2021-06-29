@@ -16,9 +16,9 @@
 ?>
 
 <div class="parameters-contentLeft" id="parameters-contentLeft">
-    <div class="parameters-imageContainer">
+    <div style="max-width: 98%; max-height: 98%;">
         <img class="allmedia-get-Image" src="../media/partners/<?php echo htmlspecialchars($image->name, ENT_QUOTES, 'UTF-8') ?>" alt="<?php echo htmlspecialchars($image->alt, ENT_QUOTES, 'UTF-8') ?>"/>
-        <figcaption class="parameter-imageFigcaption"><?php echo htmlspecialchars($image->caption, ENT_QUOTES, 'UTF-8') ?></figcaption>
+        <figcaption style="background-color: black; color: white; diplay: block;"><?php echo htmlspecialchars($image->caption, ENT_QUOTES, 'UTF-8') ?></figcaption>
     </div>
 </div><!--
 --><div class="parameters-contentRight">

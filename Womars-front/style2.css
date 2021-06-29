@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#header nav {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  border-bottom: solid #0A0623 2px;
+  background-color: #FFFFFF;
+  z-index: 5;
+}
+#header nav div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+#header nav div img {
+  width: auto;
+  height: 0%;
+  margin-left: 30px;
+}
+#header nav div ul li {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#header .navleft {
+  width: 30%;
+}
+#header .navright {
+  justify-content: flex-end;
+  margin-right: 30px;
+  width: 70%;
+}
+#header .navmobile {
+  display: none;
+}
+
+#content {
+  background-color: gray;
+  flex-grow: 1;
+}
+
+#pageHeader {
+  background-color: lightgray;
+  text-align: center;
+}
+#pageHeader h2 {
+  padding: 20%;
+}
+
+#pageHistory {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5%;
+}
+#pageHistory div:first-child {
+  background-color: lightgray;
+}
+#pageHistory div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#pageHistory div h2 {
+  margin-bottom: 3%;
+}
+#pageHistory div p {
+  width: 40%;
+  margin: 2.5% 0;
+}
+
+#pageValue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#pageValue h2 {
+  margin-bottom: 3%;
+}
+#pageValue span {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  height: 100%;
+}
+#pageValue span div {
+  background-color: lightgray;
+  padding: 10% 0;
+  margin: 2% 0;
+}
+#pageValue span div p {
+  text-align: center;
+}
+#pageValue span div:nth-child(1), #pageValue span div:nth-child(3) {
+  clip-path: polygon(85% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+  margin-right: -5%;
+}
+#pageValue span div:nth-child(2), #pageValue span div:nth-child(4) {
+  clip-path: polygon(100% 0, 100% 100%, 100% 100%, 15% 100%, 0 0);
+  margin-left: -5%;
+}
+
+#pageCrew h2 {
+  text-align: center;
+  margin: 4% 0;
+}
+#pageCrew .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 50px 50px;
+  margin-bottom: 10%;
+}
+#pageCrew .container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#pageCrew .container div .crewPic {
+  background-color: lightgray;
+  height: 150px;
+  width: 150px;
+  border-radius: 100%;
+  margin-bottom: 5%;
+}
+#pageCrew .container div .crewName {
+  margin-bottom: 5%;
+}
+#pageCrew .container div .crewDesc {
+  width: 50%;
+  text-align: center;
+}
+
+#footer footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+}
+#footer footer div {
+  width: 100%;
+}
+#footer .footer-firstdiv {
+  margin-left: 30px;
+}
+#footer .footer-seconddiv {
+  text-align: center;
+}
+#footer .footer-seconddiv img {
+  width: 45%;
+  margin-bottom: 40px;
+  height: auto;
+}
+#footer .footer-seconddiv-color {
+  color: #d37029;
+}
+#footer .footer-thirddiv {
+  margin-right: 30px;
+  text-align: right;
+}
+
+/*# sourceMappingURL=style2.css.map */

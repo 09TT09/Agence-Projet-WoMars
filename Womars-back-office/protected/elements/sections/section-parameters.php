@@ -116,13 +116,6 @@ document.getElementById('exit').addEventListener('click', event => {
     background-color: #ae0021;
 }
 
-.parameter-imageFigcaption{
-    display: block;
-    width: auto;
-    background-color: black;
-    color: white;
-}
-
 .media-inputtext{
     width: 85%;
     padding: 7px;
@@ -136,37 +129,6 @@ document.getElementById('exit').addEventListener('click', event => {
 
 .media-label{
     text-align: left;
-}
-
-.parameters-imageContainer{
-    position: relative;
-    width: 80%;
-    height: auto;
-    max-width: 98%;
-    max-height: 98%;
-    text-align: center;
-}
-
-@media screen and (max-width: 750px) {
-    .parameters-divParams{
-        width: 95%;
-        height: 95vh;
-        overflow: auto;
-    }
-    .parameters-contentLeft{
-        display: flex;
-        margin: auto;
-        margin-top: 20px;
-        width: calc(80% - 40px);
-        height: auto;
-    }
-    .parameters-contentRight{
-        display: block;
-        margin: auto;
-        margin-top: 20px;
-        width: calc(100% - 40px);
-        height: auto;
-    }
 }
 
 </style>

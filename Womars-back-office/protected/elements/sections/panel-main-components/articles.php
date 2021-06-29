@@ -1,14 +1,10 @@
 <div class="Page-tools">
     <div class="Page-tools-section">
-        <div class="page-input-container">          
-            <svg class="page-input-icone-search" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
-                <path d="M275.9,259.5L178.4,162c-0.2-0.2-0.5-0.5-0.8-0.7c12.4-15.1,19.8-34.5,19.8-55.6c0-48.5-39.3-87.9-87.9-87.9c-48.5,0-87.9,39.3-87.9,87.9c0,48.5,39.3,87.9,87.9,87.9c21.1,0,40.5-7.4,55.6-19.8c0.2,0.3,0.4,0.5,0.7,0.8l97.5,97.5c3.5,3.5,9.1,3.5,12.5,0C279.3,268.6,279.3,263,275.9,259.5z M109.6,178.3c-40.1,0-72.5-32.5-72.5-72.5c0-40.1,32.5-72.5,72.5-72.5c40.1,0,72.5,32.5,72.5,72.5C182.1,145.8,149.6,178.3,109.6,178.3z"/>
-            </svg>
-            <input type="text" class="Page-tools-researchbar" placeholder="Search an article" id="researchBar"/>
-        </div>
+        <input class="Page-tools-researchbar" id="researchBar" type="text" />
+        <button class="Page-tools-researchbutton" id="research">Research</button>
     </div><!--
     --><div class="Page-tools-section">
-        <button class="Page-tools-createcontent" onclick="location.href='create-article.php'">Create article</button>
+        <button class="Page-tools-createcontent" onclick="location.href='create-article.php'">Create content</button>
     </div>
 </div>
 
@@ -34,8 +30,8 @@
             <tr class="line">
                 <th class="Table-cell"><?php echo htmlspecialchars($article['id'], ENT_QUOTES, 'UTF-8') ?></th>
                 <th class="Table-cell title-search"><?php echo htmlspecialchars($article['title'], ENT_QUOTES, 'UTF-8') ?></th>
-                <th class="Table-cell Table-cell-author"><?php echo htmlspecialchars($article['author'], ENT_QUOTES, 'UTF-8') ?></th>
-                <th class="Table-cell Table-cell-date"><?php echo htmlspecialchars($article['date'], ENT_QUOTES, 'UTF-8') ?></th>
+                <th class="Table-cell"><?php echo htmlspecialchars($article['author'], ENT_QUOTES, 'UTF-8') ?></th>
+                <th class="Table-cell"><?php echo htmlspecialchars($article['date'], ENT_QUOTES, 'UTF-8') ?></th>
                 <th class="Table-cell-edit" onclick="location.href='edit-article.php?id=<?php echo htmlspecialchars($article['id'], ENT_QUOTES, 'UTF-8') ?>'">Edit</th>
             </tr>
         <?php endforeach ?>

@@ -35,15 +35,9 @@
 
 <?php if (isset($_GET['errorCrew'])): ?>
     <div class="divErrorCases">
-        Error : <?php echo htmlspecialchars($errorText, ENT_QUOTES, 'UTF-8') ?>
+        <p>Error : <?php echo htmlspecialchars($errorText, ENT_QUOTES, 'UTF-8') ?></P>
     </div>
 <?php endif ?>
-
-<div class="taille-image-div">
-    <div class="taille-image-title">Image display size :</div>
-    <button id="tailleMoins">-</button>
-    <button id="taillePlus">+</button>
-</div>
 
 <div class="crew-galerie" id="galerie">
     <?php
@@ -68,8 +62,7 @@
 <style>
 
 .crew-divform{
-    width: 80%;
-    height: auto;
+    width: 40%;
     margin: auto;
     font-size: 22px;
 }
@@ -94,10 +87,8 @@
 }
 
 .crew-formuploadimage{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: auto;
+    width:100%;
+    background-color: red;
 }
 
 .crew-inputfileToupload{
@@ -145,8 +136,8 @@
 }
 
 .allmedia-get-Image{
-    max-width: 100%;
-    max-height: 100%;
+    height: 100%;
+    width: 100%;
     object-fit: contain;
 }
 
@@ -159,27 +150,9 @@
 }
 
 .divErrorCases{
-    margin-top: 20px;
     overflow: auto;
     color: crimson;
     font-size: 18px;
-}
-
-.taille-image-div{
-    margin-top: 30px;
-}
-
-.taille-image-title{
-    font-size: 18px;
-}
-
-@media screen and (max-width: 750px) {
-    .crew-containerImage{
-        width: 130px;
-        height: 130px;
-        max-width: 300px;
-        min-width: 100px;
-    }
 }
 
 </style>
