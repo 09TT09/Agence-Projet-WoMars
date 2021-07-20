@@ -1,12 +1,48 @@
-<form action="../traitement/insert/createArticle.php" method="POST">
-    <div class="test">
+<form action="../traitement/insert/createArticle.php" method="POST" class="createarticle-form">
+
+    <div class="createarticle-formstate">
+        <label for="state">When created, publish the article : </label>
+        <input type="checkbox" name="state" id="publishState" class="createarticle-formcheckbox" value="setonline">
+        <span id="publishStateInfo" class="createarticle-publishstateinfo">No</span>
+    </div>
+
+    <div class="createarticle-formimage">
+        <div class="createarticle-formimagecontainer" id="formimagecontainer">
+            <p>Choose an image</p>
+        </div>
+    </div>
+
+    <div class="createarticle-infoform">
+        <label for="title" class="formlabel">Title</label>
+        <input type="text" name="title" class="forminput" placeholder="Title"/>
+
+        <label for="author" class="formlabel">Author</label>
+        <input type="text" name="author" class="forminput" placeholder="Author" />
+    </div>
+    <div class="createarticle-infoform">
+        <label for="description" class="formlabel">Description</label>
+        <textarea name="description" class="formtextarea" placeholder="Description"></textarea>
+    </div>
+
+    <div>
+        <label for="article-textarea" class="formlabel">Text</label>
+        <textarea name="text" class="formtextarea-text" id="article-textarea"></textarea>
+    </div><br><br>
+
+    <input type="hidden" id="hiddenImageId" name="imageid" value="empty" />
+    <div id="getXHR" style="display:none;"></div>
+
+    <input type="submit" value="Validate" name="send" id="article-send-form" class="article-button article-button-params">
+
+
+    <!--<div class="test">
         <div class="wysiwyg-tools" id="wysiwyg-tools"><input type="button" value="Image" id="searchAllImages"></div>
         <input type="text" name="title" class="article-input" placeholder="Title">
         <textarea name="description" class="article-textarea" placeholder="Description"></textarea>
-        <!--<div class="article-wysiwyg"></div>
+        <div class="article-wysiwyg"></div>
             <div class="article-wysiwyg-toolsbar">
               <input type="button" value="Image" id="button---">
-            </div>-->
+            </div>
         <div class="article-wysiwyg" id="article-wysiwyg" Contenteditable="true"><div><br></div></div>
         <input type="text" name="author" class="article-input" placeholder="Author">
 
@@ -14,12 +50,52 @@
 
         <p><textarea name="text" class="article-textarea" style="display:none;" id="article-textarea"></textarea></p>
         <input type="submit" value="Validate" name="send" id="article-send-form" class="article-button">
-        <div id="getXHR" style="display:none;"></div>
-    </div>
+    </div>-->
+
 </form>
 
 <script>
 
+document.getElementById('formimagecontainer').addEventListener('click', function (event) {
+  document.getElementById('wysiwyg-getImage').style.display = 'flex';
+});
+
+document.getElementById('exit').addEventListener('click', function (event) {
+  document.getElementById('wysiwyg-getImage').style.display = "none";
+});
+
+document.getElementById('publishState').addEventListener('click', function (event) {
+  if (document.getElementById('publishState').checked === false){
+    document.getElementById('publishStateInfo').innerHTML = "No";
+    document.getElementById('publishStateInfo').style.color = "crimson";
+  } else {
+    document.getElementById('publishStateInfo').innerHTML = "Yes";
+    document.getElementById('publishStateInfo').style.color = "lime";
+  }
+});
+
+function selectedImage(imageId){
+  const idSplit = imageId.id.split('-');
+  document.getElementById('wysiwyg-getImage').style.display = "none";
+  let xhttp = new XMLHttpRequest();
+  xhttp.open('POST', 'xhr/post-id-articlecreate.php', true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.onreadystatechange = function() {
+    if(xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById('getXHR').innerHTML = xhttp.responseText;
+      let getImageId = document.getElementById('xhr-imageid').innerHTML;
+      let getImageName = document.getElementById('xhr-imagename').innerHTML;
+      let getImageCaption = document.getElementById('xhr-imagecaption').innerHTML;
+      let getImageAlt = document.getElementById('xhr-imagealt').innerHTML;
+      const imageEnd = '<img class="createarticle-Image" src="../media/media/' + getImageName + '"  alt="' + getImageAlt + '" id="image-' + getImageId + '" />'
+      document.getElementById('formimagecontainer').innerHTML = imageEnd;
+      document.getElementById('hiddenImageId').value = getImageId;
+    }
+  }
+  xhttp.send('id='+idSplit[1]);
+}
+
+/*
 document.getElementById('Page-div-title-panel').innerHTML = "Create article";
 
 document.getElementById('article-wysiwyg').addEventListener('keyup', function (event) {
@@ -51,14 +127,14 @@ function divappear(x, y){
   let windowScroll = window.pageYOffset;
   console.log(windowScroll);
   document.getElementById('wysiwyg-tools').setAttribute("style", "display:flex;left: " + (x - 45) + "px;top:" + (y - 34 + windowScroll) + "px;");
-}
+}*/
 
 /*
 document.getElementById('searchAllImages').addEventListener('click', function (event) {
   pasteHtmlAtCaret('<img src="../media/capture2.PNG" height="100" width="100"/>');
-});
-*/
+});*/
 
+/*
 function pasteHtmlAtCaret(image) {
     var sel, range;
     if (window.getSelection) {
@@ -92,10 +168,6 @@ document.getElementById('searchAllImages').addEventListener('click', function (e
   document.getElementById('wysiwyg-getImage').style.display = "flex";
 });
 
-document.getElementById('exit').addEventListener('click', function (event) {
-  document.getElementById('wysiwyg-getImage').style.display = "none";
-});
-
 function selectedImage(imageId){
   const idSplit = imageId.id.split('-');
   document.getElementById('wysiwyg-getImage').style.display = "none";
@@ -116,101 +188,151 @@ function selectedImage(imageId){
   }
 
   xhttp.send('id='+idSplit[1]);
-}
-
-/*
-let a;
-let imageNumber = 0;
-
-document.getElementById('article-wysiwyg').addEventListener('keyup', function (event) {
-  a = window.getSelection().focusOffset;
-  console.log(a);
-});
-
-document.getElementById('article-wysiwyg').addEventListener('keydown', function (event) {
-  if(event.which === 8 || event.keyCode === 8) {
-    if (window.getSelection().anchorNode.parentNode.id === "wysiwyg-subdiv_0" && a === 0){
-      alert();
-    }
-  }
-});
-
-document.getElementById('article-wysiwyg').addEventListener('click', function (event) {
-  if (window.getSelection().anchorNode.parentNode.id === "article-wysiwyg" && a === 0){
-    document.getElementById('wysiwyg-subdiv_0').focus();
-    console.log(document.activeElement);
-  }
-});
-
-document.getElementById('article-wysiwyg').addEventListener('click', function (event) {
-  console.log(window.getSelection().anchorNode.parentNode.id);
-  a = window.getSelection().focusOffset;
-});
-
-document.getElementById('button---').addEventListener('click', function (event) {
-  if (window.getSelection().anchorNode != undefined){
-    let b = document.getElementById('article-wysiwyg').innerHTML;
-    document.getElementById('article-wysiwyg').innerHTML = '<div id="wysiwyg-image_' + imageNumber + '">' + b.substring(0, a) + 'hey' + b.substring(a, b.length) + '</div>';
-    imageNumber++;
-  }
-});
-
-document.getElementById('article-wysiwyg').addEventListener('keyup', function (event) {
-  if (event.key === 'Enter' || event.which === 13 || event.keyCode === 13) {
-    for (let i = 0; i < document.getElementById('article-wysiwyg').childNodes.length; i++){
-      if (document.getElementById('article-wysiwyg').getElementsByTagName('div')[i]){
-        document.getElementById('article-wysiwyg').getElementsByTagName('div')[i].id = '';
-        if (document.getElementById('article-wysiwyg').getElementsByTagName('div')[i].id === ''){
-          document.getElementById('article-wysiwyg').getElementsByTagName('div')[i].id = 'wysiwyg-subdiv_' + i;
-        }
-      }
-    }
-  }
-});
-*/
-
-/*
-  let a;
-  let c;
-
-  document.getElementById('button---').addEventListener('click', function (event) {
-    let b = document.getElementById('article-wysiwyg').innerHTML;
-    //console.log(b.substring(0, a));
-    document.getElementById('article-wysiwyg').innerHTML = b.substring(0, a) + 'hey' + b.substring(a, b.length);
-  });
-
-  document.getElementById('article-wysiwyg').addEventListener('keyup', function (event) {
-    //console.log(window.getSelection().focusOffset);
-    a = window.getSelection().focusOffset;
-  });
-
-  document.getElementById('article-wysiwyg').addEventListener('click', function (event) {
-    //console.log(window.getSelection());
-    //console.log(window.getSelection().focusOffset);
-    a = window.getSelection().focusOffset;
-    c = document.activeElement;
-    console.log(c.className);
-  });
-
-  document.getElementById('article-wysiwyg').addEventListener('keyup', function (event) {
-    if (event.key === 'Enter' || event.keyCode === 13) {
-      for (let i = 0; i < document.getElementById('article-wysiwyg').childNodes.length; i++){
-        if (document.getElementById('article-wysiwyg').getElementsByTagName('div')[i]){
-          document.getElementById('article-wysiwyg').getElementsByTagName('div')[i].className = '';
-          if (document.getElementById('article-wysiwyg').getElementsByTagName('div')[i].className === ''){
-            document.getElementById('article-wysiwyg').getElementsByTagName('div')[i].classList.add('article-wysiwyg-content-sub-div_' + i);
-            document.getElementById('article-wysiwyg').getElementsByTagName('div')[i].tabIndex = i;
-          }
-        }
-      }
-    }
-  });
-
-*/
+}*/
 
 </script>
 
 <style>
+
+.button-paging{
+    width: 160px;
+    height: 35px;
+    background-color: #F37C26;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 2px;
+    transition: .25s;
+}
+
+.button-paging:hover{
+    background-color: #d37029;
+}
+
+
+
+
+
+
+
+
+
+.createarticle-formimage{
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: black;
+}
+
+.createarticle-formimagecontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: #d4d4d4;
+    cursor: pointer;
+    margin: auto;
+}
+
+
+
+
+
+
+
+.createarticle-formstate{
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.createarticle-formcheckbox{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.createarticle-publishstateinfo{
+  color: crimson;
+}
+
+.createarticle-form{
+    text-align: center;
+}
+
+.createarticle-infoform{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 0 10px;
+}
+
+.formlabel{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.forminput{
+    margin-bottom: 30px;
+    width: 100%;
+    height: 35px;
+    font-size: 20px;
+}
+
+.formtextarea{
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 135px;
+    font-size: 16px;
+}
+
+.formtextarea-text{
+    width: 60%;
+    height: 200px;
+    font-size: 16px;
+}
+
+.article-button{
+    width: 150px;
+    height: 32px;
+    font-size: 16px;
+    vertical-align: middle;
+    background-color: #F37C26;
+    border: 0;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+    margin-bottom: 50px;
+}
+
+.article-button-params{
+    margin-bottom: 20px;
+}
+
+.article-button:hover{
+    transform: scale(1.1,1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .article-wysiwyg{
     width: 70%;

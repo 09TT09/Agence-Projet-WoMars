@@ -32,7 +32,10 @@
             foreach ($allarticles as $article):
         ?>
             <tr class="line">
-                <th class="Table-cell"><?php echo htmlspecialchars($article['id'], ENT_QUOTES, 'UTF-8') ?></th>
+                <th class="Table-cell <?php
+                    if($article['state'] === '0'){echo htmlspecialchars('Table-cell-red', ENT_QUOTES, 'UTF-8');}
+                    else {echo htmlspecialchars('Table-cell-green', ENT_QUOTES, 'UTF-8');} 
+                ?>"><?php echo htmlspecialchars($article['id'], ENT_QUOTES, 'UTF-8') ?></th>
                 <th class="Table-cell title-search"><?php echo htmlspecialchars($article['title'], ENT_QUOTES, 'UTF-8') ?></th>
                 <th class="Table-cell Table-cell-author"><?php echo htmlspecialchars($article['author'], ENT_QUOTES, 'UTF-8') ?></th>
                 <th class="Table-cell Table-cell-date"><?php echo htmlspecialchars($article['date'], ENT_QUOTES, 'UTF-8') ?></th>

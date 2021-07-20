@@ -16,7 +16,7 @@ body{
     font-family: Montserrat-Regular, Arial, sans-serif;
 }
 
-button{
+button, input, textarea{
     font-family: Montserrat-Regular, Arial, sans-serif;
 }
 
@@ -44,8 +44,8 @@ button{
     float: right;
     width: 84%;
     max-width: calc(100% - 180px);
-    min-height: calc(100vh - 310px);
-    padding-bottom: 50px;
+    min-height: calc(100vh - 260px);
+    /*padding-bottom: 50px;*/
     height: auto;
     background-color: white;
     color: #0A0623;
@@ -64,7 +64,7 @@ button{
     }
     .Page-view{
         width: calc(100% - 60px);
-        min-height: calc(100vh - 210px);
+        min-height: calc(100vh - 160px);
         max-width: calc(100% - 60px);
         font-size: 24px;
     }
@@ -187,8 +187,7 @@ button{
 
 .Page-allcontenttable{
     width: 88%;
-    margin: auto;
-    margin-top: 50px;
+    margin: 50px auto;
     height: 100px;
     background-color: #0A0623;
     font-size: 18px;
@@ -208,6 +207,8 @@ tr{
 .Table-author{width: 22%;}
 .Table-date{width: 22%;}
 .Table-edit{width: 22%;}
+.Table-cell-red{background-color: crimson !important; color: white !important;}
+.Table-cell-green{background-color: lime !important;}
 
 .Table-cell{
     background-color: white;
@@ -278,78 +279,3 @@ tr{
 
 
 /* STYLE - PAGE ARTICLESCREATES */
-
-.test{
-    width: 100%;
-    text-align: center;
-}
-
-.article-title{
-    font-size: 18px;
-}
-
-.article-textarea{
-    margin: auto;
-    width: 70%;
-    height: 100px;
-    min-width: 70%;
-    max-width: 70%;
-    min-height: 24px;
-    border: 0;
-    padding: 0 5px;
-    border-top: solid black 2px;
-    border-bottom: solid black 2px;
-    background-color: #FFFFFF;
-    color: black;
-    font-size: 20px;
-    font-family: Montserrat-Regular, Arial, sans-serif;
-    vertical-align: top;
-}
-
-.article-input{
-    width: 70%;
-    padding: 0 5px;
-    margin: 0;
-    height: 50px;
-    border: 0;
-    font-size: 30px;
-    text-align: center;
-    font-family: Montserrat-Regular, Arial, sans-serif;
-}
-
-.article-button{
-    width: 150px;
-    height: 32px;
-    font-size: 16px;
-    vertical-align: middle;
-    background-color: #F37C26;
-    border: 0;
-    border-radius: 50px;
-    color: white;
-    cursor: pointer;
-    transition: .25s;
-    margin-bottom: 50px;
-}
-
-.article-button-params{
-    margin-bottom: 20px;
-}
-
-.article-button:hover, .article-button-delete:hover{
-    transform: scale(1.1,1.1);
-}
-
-
-.article-button-delete{
-    width: 150px;
-    height: 32px;
-    font-size: 16px;
-    vertical-align: middle;
-    background-color: crimson;
-    border: 0;
-    border-radius: 50px;
-    color: white;
-    cursor: pointer;
-    transition: .25s;
-    margin-bottom: 100px;
-}

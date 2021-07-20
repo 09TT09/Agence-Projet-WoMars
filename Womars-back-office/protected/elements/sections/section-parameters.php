@@ -139,11 +139,8 @@ document.getElementById('exit').addEventListener('click', event => {
 }
 
 .parameters-imageContainer{
-    position: relative;
-    width: 80%;
-    height: auto;
-    max-width: 98%;
-    max-height: 98%;
+    width: 90%;
+    height: 90%;
     text-align: center;
 }
 

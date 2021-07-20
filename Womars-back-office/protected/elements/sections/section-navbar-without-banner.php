@@ -16,8 +16,6 @@
     </div>
 </nav>
 
-<?php include("section-banner.php"); ?>
-
 <style>
 
 /* STYLE - BARRE DE NAVIGATION */

@@ -1,6 +1,6 @@
 // MAIN SCRIPT
 
-let menuButtonsArray = ['Statistics', 'Articles', 'Pages', 'Media', 'Comments', 'Crew', 'Partners'];
+let menuButtonsArray = ['Statistics', 'Articles', 'Pages', 'Media', 'Crew', 'Partners'];
 let page;
 
 if (redirectPage === 'vide'){ page = 'Statistics'; }
@@ -44,19 +44,14 @@ function SwitchContent(){
       document.getElementsByClassName('Menu-button')[3].querySelector('svg').classList.add('color-orange');
       page = 'Media';
       break;
-    case 'Comments':
+    case 'Crew':
       document.getElementsByClassName('Menu-button')[4].classList.add('Menu-button-selected');
       document.getElementsByClassName('Menu-button')[4].querySelector('svg').classList.add('color-orange');
-      page = 'Comments';
-      break;
-    case 'Crew':
-      document.getElementsByClassName('Menu-button')[5].classList.add('Menu-button-selected');
-      document.getElementsByClassName('Menu-button')[5].querySelector('svg').classList.add('color-orange');
       page = 'Crew';
       break;
     case 'Partners':
-      document.getElementsByClassName('Menu-button')[6].classList.add('Menu-button-selected');
-      document.getElementsByClassName('Menu-button')[6].querySelector('svg').classList.add('color-orange');
+      document.getElementsByClassName('Menu-button')[5].classList.add('Menu-button-selected');
+      document.getElementsByClassName('Menu-button')[5].querySelector('svg').classList.add('color-orange');
       page = 'Partners';
       break;
     default:

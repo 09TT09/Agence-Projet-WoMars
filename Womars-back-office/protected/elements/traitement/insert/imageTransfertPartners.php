@@ -37,8 +37,9 @@
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 $nullConst = null;
-                $sql = $db->prepare("INSERT INTO partners (name, size, type, caption, alt) VALUES (:name, :size, :type, :caption, :alt)");
+                $sql = $db->prepare("INSERT INTO partners (name, link, size, type, caption, alt) VALUES (:name, :link, :size, :type, :caption, :alt)");
                 $sql->bindParam(':name', $_FILES["fileToUpload"]["name"]);
+                $sql->bindParam(':link', $_POST["link"]);
                 $sql->bindParam(':size', $_FILES["fileToUpload"]["size"]);
                 $sql->bindParam(':type', $_FILES["fileToUpload"]["type"]);
                 $sql->bindParam(':caption', $nullConst);

@@ -7,23 +7,23 @@
         $getSize = intval($image->size);
         $sizeToKo = substr(number_format($getSize), 0, -1);
         $dateTime = explode(" ", $image->date);
-        if (file_exists('../../media/'.$image->name)){
-            list($width, $height) = getimagesize('../../media/'.$image->name);
+        if (file_exists('../../media/media/'.$image->name)){
+            list($width, $height) = getimagesize('../../media/media/'.$image->name);
         }
-        $imagePath = str_replace('/pages/back-office.php', '/media/'.htmlspecialchars($image->name, ENT_QUOTES, 'UTF-8'), parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH));
+        $imagePath = str_replace('/pages/back-office.php', '/media/media/'.htmlspecialchars($image->name, ENT_QUOTES, 'UTF-8'), parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH));
         $imageFullePath = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_SCHEME) . '://' . parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST) . $imagePath;
     }
 ?>
 
 <div class="parameters-contentLeft" id="parameters-contentLeft">
     <div class="parameters-imageContainer">
-        <img class="allmedia-get-Image" src="../media/<?php echo htmlspecialchars($image->name, ENT_QUOTES, 'UTF-8') ?>" alt="<?php echo htmlspecialchars($image->alt, ENT_QUOTES, 'UTF-8') ?>"/>
+        <img class="allmedia-get-Image" src="../media/media/<?php echo htmlspecialchars($image->name, ENT_QUOTES, 'UTF-8') ?>" alt="<?php echo htmlspecialchars($image->alt, ENT_QUOTES, 'UTF-8') ?>"/>
         <figcaption class="parameter-imageFigcaption"><?php echo htmlspecialchars($image->caption, ENT_QUOTES, 'UTF-8') ?></figcaption>
     </div>
 </div><!--
 --><div class="parameters-contentRight">
 
-    <?php if (file_exists('../../media/'.$image->name)): ?>
+    <?php if (file_exists('../../media/media/'.$image->name)): ?>
 
     <form action="../traitement/update/updateFile.php?id=<?php echo htmlspecialchars($image->id, ENT_QUOTES, 'UTF-8') ?>" method="POST" id="form-update">
 
@@ -37,7 +37,7 @@
         <input type="text" name="alt" value="<?php echo htmlspecialchars($image->alt, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
 
         <label for="url" class="media-label">URL</label><br>
-        <input type="text" name="url" value="<?php echo htmlspecialchars($imageFullePath, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
+        <input type="text" name="url" value="<?php echo htmlspecialchars($imageFullePath, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" readonly /><br><br><br>
 
     </form>
 

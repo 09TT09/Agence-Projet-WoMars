@@ -1,9 +1,8 @@
 <?php require_once '../../../database/mariadb.php'?>
 <?php
-
     if (!empty($_FILES["fileToUpload"]["tmp_name"])){
 
-        $target_file = "../../media/" . basename($_FILES["fileToUpload"]["name"]);
+        $target_file = "../../media/media/" . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -50,5 +49,5 @@
             else { header("location:../../pages/back-office.php?page=Media&errorMedia=error2"); exit(); }
         }
     }
-    else { header("location:../../pages/back-office.php?page=Media&errorMedia=error1"); exit(); }
+else { header("location:../../pages/back-office.php?page=Media&errorMedia=error1"); exit(); }
 ?>

@@ -39,7 +39,7 @@ $dateTime = explode(" ", $article->date);
             <h2><?= $article->title ?></h2>
             <p>Réalisé(e) par <?= $article->author ?><br><br>
             Le <?= $dateTime[0] .' à '. $dateTime[1] ?></p><br>
-            <!--<p><//?= $article->description ?></p><br><br>-->
+            <p><?= $article->description ?></p><br><br>
             <p><?= $article->text ?></p>
         </div>
     </body>

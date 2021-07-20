@@ -1,19 +1,21 @@
 <div class="crew-divform">
     <form action="../traitement/insert/imageTransfertCrew.php" method="post" enctype="multipart/form-data">
 
-        <label for="personname" class="crew-formlabel">Name</label>
-        <input type="text" name="personname" value="" class="crew-forminput" />
+        <div class="crew-infoform">
+            <label for="personname" class="crew-formlabel">Name</label>
+            <input type="text" name="personname" class="crew-forminput" />
 
-        <label for="profession" class="crew-formlabel">Profession</label>
-        <input type="text" name="profession" value="" class="crew-forminput" />
-
-        <label for="biography" class="crew-formlabel">Biography</label>
-        <textarea name="biography" class="crew-formtextarea"></textarea>
-
-        <div class="crew-formuploadimage">
-            <input type="file" name="fileToUpload" id="fileToUpload" class="crew-inputfileToupload">
-            <input type="submit" value="Upload" name="submit" class="crew-validateForm">
+            <label for="profession" class="crew-formlabel">Profession</label>
+            <input type="text" name="profession" class="crew-forminput" />
         </div>
+
+        <div class="crew-infoform">
+            <label for="biography" class="crew-formlabel">Biography</label>
+            <textarea name="biography" class="crew-formtextarea"></textarea>
+        </div><br>
+
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload" name="submit" class="crew-validateForm">
 
     </form>
 </div>
@@ -45,9 +47,26 @@
     <button id="taillePlus">+</button>
 </div>
 
+<hr>
+
 <div class="crew-galerie" id="galerie">
+    
     <?php
-        $req = $db->query('SELECT * FROM crew ORDER BY id DESC'); 
+        $currentPage = (int)($_GET['imagepagecrew'] ?? 1);
+        if ($currentPage <= 0){
+            throw new Exception('wrong page number');
+        }
+        $counterRequest = $db->query("SELECT COUNT(id) FROM crew");
+        $counter = intval($counterRequest->fetch()[0]);
+        $imagePerPage = 30;
+        $pages = intval(ceil($counter / $imagePerPage));
+        if ($pages === 0){ $pages = 1; }
+        if ($currentPage > $pages){
+            throw new Exception('this page does not exist');
+        }
+        $offset = $imagePerPage * ($currentPage - 1);
+
+        $req = $db->query("SELECT * FROM crew ORDER BY id DESC LIMIT $imagePerPage OFFSET $offset"); 
         $allcrew = $req->fetchAll();
         foreach ($allcrew as $crew):
     ?>
@@ -63,12 +82,53 @@
         </div>
 
     <?php endforeach ?>
+
+    <div style="width: 100%;">
+        <?php if($currentPage > 1): ?>
+            <button class="button-paging" onclick="window.location='back-office.php?page=Crew&imagepagecrew=<?php echo $currentPage - 1 ?>';">Page précédente</button>
+        <?php endif ?>
+        <?php if($currentPage < $pages): ?>
+            <button class="button-paging" onclick="window.location='back-office.php?page=Crew&imagepagecrew=<?php echo $currentPage + 1 ?>';">Page suivante</button>
+        <?php endif ?>
+    </div>
 </div>
 
 <style>
 
+.button-paging{
+    width: 160px;
+    height: 35px;
+    background-color: #F37C26;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 2px;
+    transition: .25s;
+}
+
+.button-paging:hover{
+    background-color: #d37029;
+}
+
+.crew-infoform{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding: 0 10px;
+}
+
+hr{
+    margin-bottom: 0;
+    height: 0;
+    border: 0;
+    border-bottom: 1px solid #0A0623;
+}
+
 .crew-divform{
-    width: 80%;
+    width: 100%;
     height: auto;
     margin: auto;
     font-size: 22px;
@@ -90,27 +150,25 @@
     margin: auto;
     margin-bottom: 30px;
     width: 100%;
-    height: 200px;
+    height: 119px;
+    max-width: 515px;
+    min-width: 150px;
 }
 
 .crew-formuploadimage{
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: auto;
 }
 
-.crew-inputfileToupload{
-    float: left;
-    cursor: pointer;
-}
-
 .crew-validateForm{
-    float: right;
     width: 150px;
     height: 32px;
     font-size: 16px;
     background-color: #F37C26;
+    border-radius: 2px;
     border: 0;
     color: white;
     cursor: pointer;
@@ -126,7 +184,9 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 100px;
+    padding: 50px 0;
+    min-height: 36px;
+    background-color: #ffeadc;
 }
 
 .crew-containerImage{
@@ -135,6 +195,7 @@
     border: solid black 1px;
     margin: 5px;
     background-color: #d4d4d4;
+    cursor: pointer;
 }
 
 .crew-Image{
@@ -145,8 +206,8 @@
 }
 
 .allmedia-get-Image{
-    max-width: 100%;
-    max-height: 100%;
+    width: 80%;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -171,6 +232,23 @@
 
 .taille-image-title{
     font-size: 18px;
+}
+
+.taille-image-div button{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    border: 0;
+    background-color: #F37C26;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.25s;
+    color: white;
+}
+
+.taille-image-div button:hover{
+    transform: scale(1.1, 1.1);
+    background-color: #d37029;
 }
 
 @media screen and (max-width: 750px) {

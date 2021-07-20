@@ -1,14 +1,5 @@
-<?php require_once '../../database/mariadb.php'?>
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <title>WoMars Agence</title>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="description" content="Site WoMars" />
-        <meta name="robots" content="noindex" />
-        <link rel="stylesheet" type="text/css" href="../style/backoffice-style.css" />
-    </head>
+<?php require_once '../../database/mariadb.php'; ?>
+<?php include("../sections/section-header-analyticsjs.php"); ?>
 
     <body>
         <?php include("../sections/section-parameters.php"); ?>
@@ -29,7 +20,10 @@
 
         function ChangePageContent(){
             document.getElementById('modulableContent').innerHTML = '';
-            if (page === 'Articles'){
+            if (page === 'Statistics'){
+                document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/statistics.php";?>`;
+            }
+            else if (page === 'Articles'){
                 document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/articles.php";?>`;
 
                 document.getElementById('researchBar').addEventListener('keyup', event => {
@@ -38,12 +32,12 @@
                         document.getElementsByClassName('line')[searchInArticles].style.display = "table-row";
                         if ((document.getElementsByClassName('title-search')[searchInArticles].innerHTML).toLowerCase().includes(text) != true){
                             document.getElementsByClassName('line')[searchInArticles].style.display = "none";
-                        }   
+                        }
                     }
                 });
             }
             else if (page === 'Media'){
-                document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/media.php"?>`;
+                document.getElementById('modulableContent').innerHTML = `<?php include "../sections/panel-main-components/media.php";?>`;
                 tailleImages();
             }
             else if (page === 'Crew'){

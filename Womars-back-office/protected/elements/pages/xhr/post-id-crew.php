@@ -44,7 +44,7 @@
             <input type="text" name="alt" value="<?php echo htmlspecialchars($image->alt, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
 
             <label for="url" class="media-label">URL</label><br>
-            <input type="text" name="url" value="<?php echo htmlspecialchars($imageFullePath, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
+            <input type="text" name="url" value="<?php echo htmlspecialchars($imageFullePath, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" readonly /><br><br><br>
         </span>
 
         <span style="display:none;" id="imagePageChangePerson">

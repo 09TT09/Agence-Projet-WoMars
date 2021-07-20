@@ -30,6 +30,9 @@
         <label for="name" class="media-label">Title</label><br>
         <input type="text" name="name" value="<?php echo htmlspecialchars($image->name, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
 
+        <label for="link" class="media-label">Partner link</label><br>
+        <input type="text" name="link" value="<?php echo htmlspecialchars($image->link, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
+
         <label for="caption" class="media-label">Caption</label><br>
         <input type="text" name="caption" value="<?php echo htmlspecialchars($image->caption, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
 
@@ -37,7 +40,7 @@
         <input type="text" name="alt" value="<?php echo htmlspecialchars($image->alt, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
 
         <label for="url" class="media-label">URL</label><br>
-        <input type="text" name="url" value="<?php echo htmlspecialchars($imageFullePath, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" /><br><br><br>
+        <input type="text" name="url" value="<?php echo htmlspecialchars($imageFullePath, ENT_QUOTES, 'UTF-8') ?>" class="media-inputtext" readonly /><br><br><br>
 
     </form>
 

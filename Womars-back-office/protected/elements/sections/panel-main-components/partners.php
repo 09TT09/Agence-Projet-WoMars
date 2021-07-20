@@ -1,19 +1,27 @@
-<form action="../traitement/insert/imageTransfertPartners.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Image" name="submit">
-</form>
+<div class="partners-divform">
+    <form action="../traitement/insert/imageTransfertPartners.php" method="post" enctype="multipart/form-data">
+
+        <label for="link" class="partners-formlabel">Partner link</label>
+        <input type="text" name="link" class="partners-forminput" />
+        <br>
+
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit" class="partners-validateForm">
+
+    </form>
+</div>
 
 <?php
     if(isset($_GET['errorPartners'])){
         $error = $_GET['errorPartners'];
         $errorText;
         if ($error === 'error1'){$errorText = 'No file chosen';}
-        if ($error === 'error2'){$errorText = "An error occured when uploading your file.";}
-        if ($error === 'error3'){$errorText = "Your file already exists.";}
-        if ($error === 'error4'){$errorText = "Your file is too large.";}
-        if ($error === 'error5'){$errorText = "Only JPG, JPEG, PNG & GIF files are allowed.";}
-        if ($error === 'error6'){$errorText = "Sorry, your file was not uploaded.";}
-        if ($error === 'error7'){$errorText = "File is not an image.";}
+        else if ($error === 'error2'){$errorText = "An error occured when uploading your file.";}
+        else if ($error === 'error3'){$errorText = "Your file already exists.";}
+        else if ($error === 'error4'){$errorText = "Your file is too large.";}
+        else if ($error === 'error5'){$errorText = "Only JPG, JPEG, PNG & GIF files are allowed.";}
+        else if ($error === 'error6'){$errorText = "Sorry, your file was not uploaded.";}
+        else if ($error === 'error7'){$errorText = "File is not an image.";}
     }
 ?>
 
@@ -29,9 +37,26 @@
     <button id="taillePlus">+</button>
 </div>
 
+<hr>
+
 <div class="partners-galerie" id="galerie">
+
     <?php
-        $req = $db->query('SELECT * FROM partners ORDER BY id DESC'); 
+        $currentPage = (int)($_GET['imagepagepartners'] ?? 1);
+        if ($currentPage <= 0){
+            throw new Exception('wrong page number');
+        }
+        $counterRequest = $db->query("SELECT COUNT(id) FROM partners");
+        $counter = intval($counterRequest->fetch()[0]);
+        $imagePerPage = 30;
+        $pages = intval(ceil($counter / $imagePerPage));
+        if ($pages === 0){ $pages = 1; }
+        if ($currentPage > $pages){
+            throw new Exception('this page does not exist');
+        }
+        $offset = $imagePerPage * ($currentPage - 1);
+
+        $req = $db->query("SELECT * FROM partners ORDER BY id DESC LIMIT $imagePerPage OFFSET $offset"); 
         $allpartners = $req->fetchAll();
         foreach ($allpartners as $partner):
     ?>
@@ -47,16 +72,86 @@
         </div>
 
     <?php endforeach ?>
+
+    <div style="width: 100%;">
+        <?php if($currentPage > 1): ?>
+            <button class="button-paging" onclick="window.location='back-office.php?page=Partners&imagepagepartners=<?php echo $currentPage - 1 ?>';">Page précédente</button>
+        <?php endif ?>
+        <?php if($currentPage < $pages): ?>
+            <button class="button-paging" onclick="window.location='back-office.php?page=Partners&imagepagepartners=<?php echo $currentPage + 1 ?>';">Page suivante</button>
+        <?php endif ?>
+    </div>
+
 </div>
 
 <style>
+
+.button-paging{
+    width: 160px;
+    height: 35px;
+    background-color: #F37C26;
+    color: white;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 2px;
+    transition: .25s;
+}
+
+.button-paging:hover{
+    background-color: #d37029;
+}
+
+.partners-divform{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    font-size: 22px;
+}
+
+.partners-formlabel{
+    display: block;
+    width: 50%;
+    margin: auto auto 5px auto;
+}
+
+.partners-forminput{
+    margin-bottom: 30px;
+    width: 50%;
+    height: 25px;
+}
+
+.partners-validateForm{
+    width: 150px;
+    height: 32px;
+    font-size: 16px;
+    background-color: #F37C26;
+    border-radius: 2px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.partners-validateForm:hover{
+    background-color: #d37029;
+}
+
+hr{
+    margin-bottom: 0;
+    height: 0;
+    border: 0;
+    border-bottom: 1px solid #0A0623;
+}
 
 .partners-galerie{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 100px;
+    padding: 50px 0;
+    min-height: 36px;
+    background-color: #ffeadc;
 }
 
 .partners-containerImage{
@@ -65,6 +160,7 @@
     border: solid black 1px;
     margin: 5px;
     background-color: #d4d4d4;
+    cursor: pointer;
 }
 
 .partners-Image{
@@ -75,8 +171,8 @@
 }
 
 .allmedia-get-Image{
-    max-width: 100%;
-    max-height: 100%;
+    width: 80%;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -101,6 +197,23 @@
 
 .taille-image-title{
     font-size: 18px;
+}
+
+.taille-image-div button{
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    border: 0;
+    background-color: #F37C26;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.25s;
+    color: white;
+}
+
+.taille-image-div button:hover{
+    transform: scale(1.1, 1.1);
+    background-color: #d37029;
 }
 
 @media screen and (max-width: 750px) {
